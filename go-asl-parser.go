@@ -5,6 +5,8 @@ import (
 	"os"
 
 	"github.com/urfave/cli/v2"
+
+	"github.com/ashwineaso/go-asl-parser/src"
 )
 
 func main() {
@@ -22,7 +24,17 @@ func main() {
 			},
 		},
 		Action: func(*cli.Context) error {
-			//TODO: validate the ASL file
+			log.Printf("Validating ASL file: %s", jsonPath)
+			content, err := os.ReadFile(jsonPath)
+			if err != nil {
+				log.Fatalf("failed to read file: %v", err)
+			}
+
+			if err := src.ValidateSchema(content); err != nil {
+				log.Fatalf("failed to validate schema: %v", err)
+			}
+
+			log.Println("ASL file is valid")
 			return nil
 		},
 	}
