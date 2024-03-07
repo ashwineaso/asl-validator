@@ -6,7 +6,7 @@ import (
 
 	"github.com/urfave/cli/v2"
 
-	"github.com/ashwineaso/go-asl-parser/src"
+	"github.com/ashwineaso/asl-validator/src"
 )
 
 func main() {

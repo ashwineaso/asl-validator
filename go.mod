@@ -1,4 +1,4 @@
-module github.com/ashwineaso/go-asl-parser
+module github.com/ashwineaso/asl-validator
 
 go 1.22.0
 
